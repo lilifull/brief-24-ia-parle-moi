@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-   
     <img class="robot" src="static/images/robot2.webp" width="500px">
-    <p class="question"> {{question}} </p>
+    <p class="question"> {{question}}</p>
     <p class="response">{{response}} </p>
-    <a href="{{ url_for('discuter')}}">Répondre</a>
-
+    <form action="{{ url_for('discuter')}}">
+        <button class="button" style="vertical-align:middle"><span>Répondre</span></button>
+    </form>
 {% endblock %}

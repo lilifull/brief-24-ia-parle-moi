@@ -7,15 +7,27 @@ html, body {
     height: 100%;
     max-width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    }
+}
 
 header {
-    background-color: #07242e;
+    background-color: #0e4878;
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
     align-items: center;
+}
+
+.right-logos {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 150px;
+}
+
+.left-logos {
+  width: 150px;
+  text-align: left;
 }
 
 header h1 {
@@ -26,8 +38,13 @@ header h1 {
     color: white;
 }
 
+section {
+  display: flex;
+  padding: 15px;
+  flex: 1 1 auto;
+}
+
 .home-link {
-    padding-left: 15px;
     display: flex;
     gap: 15px;
     flex-direction: row;
@@ -36,6 +53,34 @@ header h1 {
     font-size: 30px;
     color: #ffffff;
     text-decoration: none;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+}
+
+.start-discussion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.start-discussion-text {
+  padding: 15px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  padding: 0px 30px;
+}
+
+.robot-img {
+  padding-left: 90px;
 }
 
 p {
@@ -53,39 +98,39 @@ p {
 .button {
     display: inline-block;
     border-radius: 4px;
-    background-color: #07242e;
+    background-color: #0e4878;
     border: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 28px;
     padding: 20px;
-    width: 200px;
+    width: 225px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
   }
   
-  .button span {
+.button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
+}
   
-  .button span:after {
+.button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-  }
+}
   
-  .button:hover span {
+.button:hover span {
     padding-right: 25px;
-  }
+}
   
-  .button:hover span:after {
+.button:hover span:after {
     opacity: 1;
     right: 0;
-  }
+}

@@ -40,18 +40,18 @@ def speek_response(response, driverName="nsss"):
     engine.runAndWait() 
 
 def azure_speek(response):
-        # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+    # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
     audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
     # The language of the voice that speaks.
     speech_config.speech_synthesis_voice_name="fr-FR-EloiseNeural"
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
-    speech_synthesis_result = speech_synthesizer.speak_text_async(response).get()
+    speech_synthesizer.speak_text_async(response).get()
 
 if __name__ == ("__main__"):
-    question,  = recognize_from_microphone()
+    question= recognize_from_microphone()
     print(recognize_from_microphone())
     response = response_ia(question)
     print(response)
-    speek_response(response)
+    azure_speek(response)

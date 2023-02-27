@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-<img class="robot" src="static/images/robot2.webp" width="500px">
-
-<form action="{{ url_for('discuter')}}">
-    <button class="button" style="vertical-align:middle"><span>Discutons </span></button>
-
+    <div class="index-container">
+        <img class="robot-img" src="static/images/robot2.png">
+        <div class="start-discussion-container">
+            <div class="start-discussion-text">Appuie sur le bouton et parle avec l'IA</div>
+            <form action="{{ url_for('discuter')}}">
+                <button class="button" style="vertical-align:middle"><span>Discutons !</span></button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

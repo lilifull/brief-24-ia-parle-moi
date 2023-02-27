@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import azure.cognitiveservices.speech as speechsdk
-from utils import recognize_from_microphone, response_ia, speek_response, azure_speek
+from utils import recognize_from_microphone, response_ia, azure_speek
 
 app = Flask(__name__)
 
@@ -10,10 +10,10 @@ def index():
 
 @app.route("/discuter")
 def discuter():
-    question = recognize_from_microphone()
-    response = response_ia(question)
-    azure_speek(response)
-    return render_template('discuter.html', question=question, response=response)
+        question = recognize_from_microphone()
+        response = response_ia(question)
+        azure_speek(response)
+        return render_template('discuter.html', question=question, response=response)
 
 # verify that the app is running correctly
 @app.route('/health')

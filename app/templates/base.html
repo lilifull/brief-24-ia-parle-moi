@@ -7,13 +7,15 @@
         <title>IA parles moi !</title>
     </head>
     <body>
-        <header> 
-            <div><a class="home-link" href="{{ url_for('index') }}">
-                <img src="{{ url_for('static', filename='icons/logo_robot.ico') }}" alt="Home" width="50px"></a>Home</div>
-                <h1>Parle avec une IA !</h1>
-                <a> <img src="static/icons/logo_azure.png" width="50px"></a>
-                <a> <img src="static/icons/logo_open_ia.webp" width="50px"></a>
-            <div class="empty-header-div"></div>
+        <header>
+            <div class="left-logos">
+                <a class="home-link" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='icons/robot-icon.png') }}" alt="Home" width="70px"></a>
+            </div>
+            <h1>Parle avec une IA !</h1>
+            <div class="right-logos">
+                <div><a><img src="static/icons/logo_azure.png" width="50px"></a></div>
+                <div><a><img src="static/icons/open-ai-logo.png" width="50px"></a></div>
+            </div>
         </header>
         <section>
             {% block content %}{% endblock %}
