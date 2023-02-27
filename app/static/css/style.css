@@ -1,0 +1,91 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    background: #007FFF;
+    margin: 0px;
+    height: 100%;
+    max-width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+header {
+    background-color: #07242e;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0px;
+    padding: 15px;
+    font-size: 80px;
+    text-align: center;
+    color: white;
+}
+
+.home-link {
+    padding-left: 15px;
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p {
+    margin: 0px;
+    padding: 15px;
+    font-size: 30px;
+    text-align:right;
+    color: white;
+}
+
+.empty-header-div {
+    width: 10px;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #07242e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
