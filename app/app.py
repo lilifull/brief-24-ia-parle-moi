@@ -7,13 +7,13 @@ app = Flask(__name__)
 questions_responses = []
 
 @app.route("/")
-def index():
+def index():   
     return render_template('index.html')
 
 @app.route("/chat")
 def chat():
     question = recognize_from_microphone()
-    response = response_ia(question)
+    response = response_ia(question,questions_responses)
     azure_speek(response)
     questions_responses.append({ 'question': question, 'response': response})
     return render_template('chat.html', questions_responses=questions_responses)

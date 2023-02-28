@@ -14,16 +14,24 @@ def recognize_from_microphone():
     audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
 
+    word_list = ['Sophana', 'C#', 'Scikit-learn', 'scipy', 'R', 'serverless', 'pytorch', 'seaborn', 'simplonien', 'simplonienne','Sirine','Lakhbir','Simplonline']
+    phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(speech_recognizer)
+    for word in word_list:       
+        phrase_list_grammar.addPhrase(word)
+
     print("Poses ta question.")
     speech_recognition_result = speech_recognizer.recognize_once_async().get()
 
     return speech_recognition_result.text
 
-def response_ia(question) :
+
+
+def response_ia(question, tchat_list) :
+    mode_tchat = f"Si j étais un humain du nommé Lily et que j étais dans la conversation suivante : '{tchat_list}' et qu une personne rajoutais cela {question} je lui dirai :" 
     response = openai.Completion.create(
   model="text-davinci-003",
-  prompt=question,
-  temperature=1,
+  prompt=mode_tchat,
+  temperature=0.8,
   max_tokens=300,
   top_p=1,
   frequency_penalty=1,
@@ -49,3 +57,4 @@ if __name__ == ("__main__"):
     response = response_ia(question)
     print(response)
     azure_speek(response)
+    
