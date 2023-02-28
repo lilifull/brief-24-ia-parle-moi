@@ -7,8 +7,10 @@
         </div>
         <div class="chat-text">
             <div class="ongoing-text">
-                <p class="question"> {{question}}</p>
-                <p class="response">{{response}} </p>
+                {% for question_response in questions_responses %}
+                    <p class="question"> {{question_response.question}}</p>
+                    <p class="response">{{question_response.response}} </p>
+                {% endfor %}
             </div>
             <form class="chat-button-container" action="{{ url_for('chat')}}">
                 <button class="button"><span>Répondre</span></button>

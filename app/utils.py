@@ -1,7 +1,6 @@
 import os
 import azure.cognitiveservices.speech as speechsdk
 import openai
-import pyttsx3
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -17,6 +16,7 @@ def recognize_from_microphone():
 
     print("Poses ta question.")
     speech_recognition_result = speech_recognizer.recognize_once_async().get()
+
     return speech_recognition_result.text
 
 def response_ia(question) :
@@ -32,13 +32,6 @@ def response_ia(question) :
     response = response.choices[0].text
     return response
 
-def speek_response(response, driverName="nsss"):
-    engine = pyttsx3.init()
-    engine.stop() 
-    engine.setProperty('rate', 80) # réglage de la vitesse de parole
-    engine.say(response)
-    engine.runAndWait() 
-
 def azure_speek(response):
     # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
@@ -48,6 +41,7 @@ def azure_speek(response):
     speech_config.speech_synthesis_voice_name="fr-FR-EloiseNeural"
     speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
     speech_synthesizer.speak_text_async(response).get()
+  
 
 if __name__ == ("__main__"):
     question= recognize_from_microphone()

@@ -4,6 +4,8 @@ from utils import recognize_from_microphone, response_ia, azure_speek
 
 app = Flask(__name__)
 
+questions_responses = []
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -13,7 +15,8 @@ def chat():
     question = recognize_from_microphone()
     response = response_ia(question)
     azure_speek(response)
-    return render_template('chat.html', question=question, response=response)
+    questions_responses.append({ 'question': question, 'response': response})
+    return render_template('chat.html', questions_responses=questions_responses)
 
 # verify that the app is running correctly
 @app.route('/health')
