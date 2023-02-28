@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="chat-container">
+        <div class="robot-img-container">
+            <img class="robot-img" src="static/images/robot2.png">
+        </div>
+        <div class="chat-text">
+            <div class="ongoing-text">
+                <p class="question"> {{question}}</p>
+                <p class="response">{{response}} </p>
+            </div>
+            <form class="chat-button-container" action="{{ url_for('chat')}}">
+                <button class="button"><span>Répondre</span></button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

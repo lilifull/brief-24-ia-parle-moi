@@ -8,12 +8,12 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route("/discuter")
-def discuter():
-        question = recognize_from_microphone()
-        response = response_ia(question)
-        azure_speek(response)
-        return render_template('discuter.html', question=question, response=response)
+@app.route("/chat")
+def chat():
+    question = recognize_from_microphone()
+    response = response_ia(question)
+    azure_speek(response)
+    return render_template('chat.html', question=question, response=response)
 
 # verify that the app is running correctly
 @app.route('/health')
